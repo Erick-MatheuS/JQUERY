@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Calculadora de IMC</title>
+
+    <style>
+        *{
+            font-family: monospace;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            margin: 200px auto;
+            max-width: 400px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h3>Calculadora de IMC = Índice de Massa Corporal</h3>
+
+    Altura em metros (ex: 1,70 metros) <br>
+    <input type="number" name="altura" id="altura"><br><br>
+
+    Peso em quilos <br>
+    <input type="number" name="peso" id="peso"><br><br>
+
+    <button>Cálcular</button>
+
+    <h1 id="resposta"></h1>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
