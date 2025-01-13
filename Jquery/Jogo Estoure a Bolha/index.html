@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Jogo Estoure a Bolha</title>
+
+    <style>
+
+        .placar{
+            width: 280px;
+            height: 258px;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background-color: #eee;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        #placar{
+            font-size: 50px;
+        }
+
+        .bola{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: black;
+            position: absolute;
+        }
+    
+    </style>
+
+</head>
+<body>
+
+    <div class="placar">
+        Bolas Estouradas: <br>
+        <span id="placar">0</span><br><br>
+        <button id="comecar">Começar o jogo</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+    <script>
+
+/////////////////////////// Eu não consegui roda esse código ////////////////////////////////////
+        
+        
+        function addBola(){
+
+                var x = Math.floor(Math.random()*800);
+                var y = Math.floor(Math.random()*500);
+                var cor = Math.floor(Math.random()* 4);
+                
+                var bola = $('<div class="bola"></div>');
+                bola.css("left", x+ "px");
+                bola.css("top", y+ "py");
+                
+                // Azul , Vermelho, Amarelo , Preto, Verde
+
+                    switch(cor){
+                        case 0:
+                            bola.css("background-color", "blue");
+                            break;
+                        case 1:
+                            bola.css("background-color", "red");
+                            break;
+                        case 2:
+                            bola.css("background-color", "yellow");
+                            break;
+                        case 3:
+                            bola.css("background-color", "black");
+                            break;
+                        case 4:
+                            bola.css("background-color", "green");
+                            break;
+                    }
+
+                bola.bind("click", function(){
+                    $(this).fadeOut("fast");
+
+                    placar ++;
+                    updatePlacar();
+                })
+
+            $(document.body).append(bola);
+        }
+
+
+        function updatePlacar(){
+            $("#placar").html(placar)
+        }
+
+        var placar = 0;
+
+        $("#comecar").bind("click", function(){
+            setInterval(addBola, 1000);
+        })
+
+    </script>
+
+</body>
+</html>

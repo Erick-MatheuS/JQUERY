@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Força de Senha</title>
+
+    <style>
+
+        *{
+            font-family: monospace;
+        }
+        
+    </style>
+
+</head>
+<body>
+
+    <!-- Primeira coisa a ser feita, é criar um campo para colocar a senha -->
+
+    Senha : <br>
+
+    <input type="password" name="senha" id="senha">
+    <div id="forca">Força:</div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $("#senha").bind("keyup", function(){
+                var txt = $(this).val();
+                // $("#forca").html(txt);
+
+                var forca = 0;
+
+                // Letras
+                // Numeros
+                // Caracteres especiais
+                // Minimo de caracteres
+                // Nossa força, vai de 0 a 100
+                
+                if(txt.length > 6){
+                    forca += 25;
+                }
+
+                var reg = new RegExp(/[a-z]/i);
+                if(reg.test(txt)){
+                    forca += 25;
+                }
+                var reg = new RegExp(/[0-9]/i);
+                if(reg.test(txt)){
+                    forca += 25;
+                }
+                var reg = new RegExp(/[^a-z0-9]/i);
+                if(reg.test(txt)){
+                    forca += 25;
+                }
+
+                $("#forca").html('Forca : ' +forca+ '( ' +txt+ ') ')
+
+            })
+
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Menu Dropdown</title>
+
+    <style>
+
+        body{
+            font-family: monospace;
+            background-repeat: no-repeat;
+            background-color: #dddddd;
+        }
+
+        #menu{
+            height: 50px;
+            background-color: #fff;
+            color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        ul{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        
+        li{
+            float: left;
+            padding: 0px 60px;
+            line-height: 45px;
+            cursor: pointer;
+        }
+
+        .calca1{
+            height: 52px;
+        }
+
+        .calca2{
+            /* Precisamos desse position absolute, porque precisamos que esse elemento fique flutuando no nosso browser */
+            position: absolute;
+            width: 140px;
+            height: 200px;
+            text-align:center;
+            background-color: black;
+            display: none;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Menu DropDown -->
+    <!-- O que é ? -->
+
+    <!--
+    Um menu drop-down ou menu suspenso é um elemento de interface 
+    que é similar a uma lista, que permite que o usuário escolha um valor de uma 
+    lista de opções que "cai para baixo". Quando o menu drop-down está inativo,
+    ele esconde as opções do menu, economizando espaço na tela 
+    -->
+    
+    <div id="menu">
+
+        <ul>
+            <li>
+                 <!-- 
+                    Para criarmos Menus Dropdown, geralmente criamos da seguinte maneira  
+                    Colocamos o texto do menu, numa DIV
+                    E vamos criar uma outra DIV, em baixo 
+                    A sugunda DIv criada, ela quem vai guardar os nossos menus internos (subMenus)
+                -->
+
+                <div class="calca1">calça</div>
+                <div class="calca2">
+                    <div>numero 40</div>
+                    <div>numero 44</div>
+                    <div>numero 46</div>
+                    <div>numero 50</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="calca1">tenis</div>
+                <div class="calca2">
+                    <div>nike</div>
+                    <div>adidas</div>
+                    <div>oakley</div>
+                    <div>LRG</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="calca1">blusa</div>
+                <div class="calca2">
+                    <div>infantil</div>
+                    <div>masculino</div>
+                    <div>feminina</div>
+                    <div>canguru</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="calca1">boné</div>
+                <div class="calca2">
+                    <div>abata torta</div>
+                    <div>bone reta</div>
+                    <div>skate</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="calca1">meia</div>
+                <div class="calca2">
+                    <div>tamanho P</div>
+                    <div>tamanho M</div>
+                    <div>Tamanho G</div>
+                    <div>Tamanho GG</div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Script para nosso Jquery -->
+
+    <script>
+
+        
+
+    // Precisamos ter duas funções
+    // A primeira é quando o cara passar o mouse por cima do LI, ele vai entrar no próprio objeto e vai 
+    // procurar o "calca2", ai damos um "SHOW()", para mostrar mostrar nosso elemento.
+
+    // E na segunda função, quando tirarmos o mouse sobre o LI, vai subir nosos subMenu;
+        $(function(){
+
+            $("li").hover(function(){
+                $(this).find(".calca2").slideDown();
+            }, function(){
+                $(this).find(".calca2").slideUp();
+            })
+        });
+
+    </script>
+    
+</body>
+</html>
