@@ -4,4 +4,4 @@ Este repositório contém um conjunto de exemplos, projetos e utilitários desen
 
 ## Clone este repositório para sua máquina local usando o comando:
 
-``https://github.com/Erick-MatheuS/JQUERY.git``
+```git clone https://github.com/Erick-MatheuS/JQUERY.git```
